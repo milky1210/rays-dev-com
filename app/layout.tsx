@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rays-dev.com'),
-  title: 'RAYS — Play. Build. Share.',
+  title: 'RAYS — やってみたいを、つくってみる。',
   description:
-    'RAYSのポートフォリオ。ゲーム、Webアプリ、映像の実験をつくっています。',
+    'RAYSのポートフォリオ。ゲーム、数学、Webアプリを、触って遊べる形にしています。',
   openGraph: {
-    title: 'RAYS — Play. Build. Share.',
+    title: 'RAYS — やってみたいを、つくってみる。',
     description:
-      '思いつきを、触れるものに。ゲーム、Webアプリ、映像の実験をつくっています。',
+      'ゲーム、数学、Webアプリを、触って遊べる形にしています。',
     url: 'https://rays-dev.com',
     siteName: 'RAYS',
     locale: 'ja_JP',
@@ -30,15 +30,15 @@ export const metadata: Metadata = {
         url: '/og.png',
         width: 1792,
         height: 922,
-        alt: 'RAYS — Play. Build. Share.',
+        alt: 'RAYS — やってみたいを、つくってみる。',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RAYS — Play. Build. Share.',
+    title: 'RAYS — やってみたいを、つくってみる。',
     description:
-      '思いつきを、触れるものに。ゲーム、Webアプリ、映像の実験をつくっています。',
+      'ゲーム、数学、Webアプリを、触って遊べる形にしています。',
     images: ['/og.png'],
   },
 };
