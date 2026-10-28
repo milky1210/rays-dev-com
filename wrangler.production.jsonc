@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "rays-dev",
+  "account_id": "8b28fa88750c1aa6dd53f5537a849eb5",
+  "compatibility_date": "2026-10-04",
+  "assets": {
+    "directory": "./dist/client",
+    "not_found_handling": "404-page"
+  }
+}

@@ -49,7 +49,7 @@ const projects = [
     label: 'PRICE QUIZ',
     description:
       '1個あたりの値段をすばやく比べる、10問タイムアタック。買い物の暗算力を試そう。',
-    href: 'https://select-cheaper.rays-dev.com',
+    href: '/apps/select-cheaper/',
     icon: Sparkles,
     className: 'project-cheaper',
     tags: ['QUIZ', 'JAVASCRIPT'],
