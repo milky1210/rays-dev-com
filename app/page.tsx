@@ -11,6 +11,17 @@ import {
 
 const projects = [
   {
+    number: '00',
+    title: 'ログ算道場',
+    label: 'LEARN LOGARITHMS',
+    description:
+      '大きな数を、対数でつかむ。ログ算の基本から、単位・時間・確率のクイズまで、ブラウザで練習できます。',
+    href: '/learn/logcal/',
+    icon: Sigma,
+    className: 'project-fourier',
+    tags: ['LEARNING', 'MATH'],
+  },
+  {
     number: '01',
     title: '影将棋',
     label: 'SHADOW SHOGI',
