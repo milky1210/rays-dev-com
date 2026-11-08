@@ -1,5 +1,5 @@
 import {
-  Braces,
+  ArrowUpRight,
   CirclePlay,
   Code2,
   Flame,
@@ -10,17 +10,6 @@ import {
 } from 'lucide-react';
 
 const projects = [
-  {
-    number: '00',
-    title: 'ログ算道場',
-    label: 'LEARN LOGARITHMS',
-    description:
-      '大きな数を、対数でつかむ。ログ算の基本から、単位・時間・確率のクイズまで、ブラウザで練習できます。',
-    href: '/learn/logcal/',
-    icon: Sigma,
-    className: 'project-fourier',
-    tags: ['LEARNING', 'MATH'],
-  },
   {
     number: '01',
     title: '影将棋',
@@ -84,11 +73,7 @@ const youtubeVideos = [
 
 function FaceMark() {
   return (
-    <span className="face-mark" aria-hidden="true">
-      <i />
-      <i />
-      <b />
-    </span>
+    <img className="face-mark" src="/favicon.svg" alt="" width="48" height="48" aria-hidden="true" />
   );
 }
 
@@ -105,6 +90,7 @@ export default function Home() {
 
         <nav aria-label="メインナビゲーション">
           <a href="#works">つくったもの</a>
+          <a href="#learn">学ぶ</a>
           <a href="#youtube">YouTube</a>
           <a href="#about">RAYSについて</a>
         </nav>
@@ -121,7 +107,6 @@ export default function Home() {
       </header>
 
       <section className="hero">
-        <div className="hero-dots" aria-hidden="true" />
         <div className="hero-copy">
           <p className="hero-kicker">
             <Sparkles size={18} aria-hidden="true" />
@@ -155,27 +140,16 @@ export default function Home() {
         </div>
 
         <div className="hero-character">
-          <div className="speech-bubble">
-            <span>こんにちは！</span>
-            RAYSです
-          </div>
-          <span className="float-tag tag-code">
-            <Braces size={18} aria-hidden="true" /> CODE
-          </span>
-          <span className="float-tag tag-play">
-            <Gamepad2 size={18} aria-hidden="true" /> PLAY
-          </span>
-          <span className="float-tag tag-math">
-            <Sigma size={18} aria-hidden="true" /> MATH
-          </span>
+          <span className="character-note">好奇心の、その先へ。</span>
           <div className="character-halo" aria-hidden="true" />
           <img
-            src="/assets/rays-mascot.png"
-            alt="黒いパーカーを着たRAYSのキャラクター"
+            src="/assets/rays-welcome.png"
+            alt="光る丸い目と黒いフードのRAYSが、手を広げてご案内"
             width="1280"
             height="1280"
             fetchPriority="high"
           />
+          <span className="character-caption"><i /> RAYS / YOUR CURIOUS COMPANION</span>
         </div>
       </section>
 
@@ -187,6 +161,20 @@ export default function Home() {
           <span>CREATIVE CODING</span><i>●</i><span>MATH</span>
         </div>
       </div>
+
+      <section className="learn-feature" id="learn" aria-labelledby="learn-title">
+        <div className="learn-visual">
+          <span className="learn-formula" aria-hidden="true">log(ab) = log a + log b</span>
+          <img src="/assets/rays-thinking.png" alt="あごに手をあてて考えるRAYS" width="1280" height="1280" loading="lazy" />
+        </div>
+        <div className="learn-copy">
+          <p className="section-kicker">LEARN WITH RAYS</p>
+          <h2 id="learn-title">「わからない」を、<br />「おもしろい」に。</h2>
+          <p>大きな数も、対数を使えばぐっと身近に。<br />RAYSと一緒に、考える感覚を育てる「ログ算道場」。</p>
+          <a className="primary-button" href="/learn/logcal/">ログ算道場へ <ArrowUpRight size={18} aria-hidden="true" /></a>
+          <span className="learn-detail">7つのコース / 1回最大10問 / 登録不要</span>
+        </div>
+      </section>
 
       <section className="works" id="works">
         <div className="section-title">
@@ -202,8 +190,8 @@ export default function Home() {
               <a
                 className={`project-card ${project.className}`}
                 href={project.href}
-                target="_blank"
-                rel="noreferrer"
+                target={project.href.startsWith('https:') ? '_blank' : undefined}
+                rel={project.href.startsWith('https:') ? 'noreferrer' : undefined}
                 key={project.title}
               >
                 <div className="project-topline">
@@ -222,7 +210,7 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-                <span className="open-label">あそぶ</span>
+                <span className="open-label" aria-hidden="true"><ArrowUpRight size={23} /></span>
               </a>
             );
           })}
@@ -294,8 +282,8 @@ export default function Home() {
             GitHubでコードを見る
           </a>
         </div>
-        <div className="about-stamp" aria-hidden="true">
-          <span>RAYS</span>
+        <div className="about-mascot">
+          <img src="/assets/rays-celebrate.png" alt="笑顔でガッツポーズをするRAYS" width="1280" height="1280" loading="lazy" />
           <small>PLAY · BUILD · SHARE</small>
         </div>
       </section>

@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://rays-dev.com'),
   title: 'RAYS — やってみたいを、つくってみる。',
+  icons: { icon: '/favicon.svg' },
   description:
     'RAYSのポートフォリオ。ゲーム、数学、Webアプリを、触って遊べる形にしています。',
   openGraph: {
@@ -27,9 +28,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og.png',
-        width: 1792,
-        height: 922,
+        url: '/og-rays.png',
+        width: 1734,
+        height: 907,
         alt: 'RAYS — やってみたいを、つくってみる。',
       },
     ],
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     title: 'RAYS — やってみたいを、つくってみる。',
     description:
       'ゲーム、数学、Webアプリを、触って遊べる形にしています。',
-    images: ['/og.png'],
+    images: ['/og-rays.png'],
   },
 };
 

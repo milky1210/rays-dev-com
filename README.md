@@ -88,3 +88,10 @@ Run the portfolio build and deploy again.
 GitHubの元HEAD `b63abf4` に加え、旧ローカル作業フォルダの公開済みコミット
 `d67f898`（select-cheaperのパス公開とWorker設定）を履歴ごと取り込んでいる。
 既存のカスタムドメインや他のWorkerはこのプロジェクトから変更しない。
+
+## キャラクターとブランド素材
+
+デザイン資料、生成プロンプト、画像の保存先は `docs/brand/README.md` に記録する。
+共通アイコンは `public/favicon.svg`。キャラクターの案内・思案・笑顔の3ポーズは
+`public/assets/rays-welcome.png`、`rays-thinking.png`、`rays-celebrate.png`。
+SNS共有画像は `public/og-rays.png` を使用する。

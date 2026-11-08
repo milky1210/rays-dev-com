@@ -71,8 +71,11 @@ for (const [i, item] of courses.entries()) {
   button.className = 'course';
   const number = document.createElement('span'); number.textContent = `COURSE ${String(i + 1).padStart(2, '0')}`;
   const title = document.createElement('strong'); title.textContent = item.label;
+  const symbol = document.createElement('b'); symbol.className = 'course-symbol'; symbol.setAttribute('aria-hidden', 'true');
+  symbol.textContent = ['log', '× ÷', 'k M', 'm²', 's', '%', '10ⁿ'][i];
   const description = document.createElement('small'); description.textContent = item.description;
-  button.append(number, title, description);
+  const arrow = document.createElement('i'); arrow.textContent = '↗'; arrow.setAttribute('aria-hidden', 'true');
+  button.append(number, symbol, title, description, arrow);
   button.addEventListener('click', () => start(item));
   $('course-list').append(button);
 }
@@ -94,7 +97,11 @@ $('answer-form').addEventListener('submit', event => {
   const correct = document.createElement('p'); correct.textContent = `あなたの回答: ${grade.answer} / 正解: ${q.answer.toFixed(3)}（差: ${grade.error.toFixed(3)}）`;
   const explanation = document.createElement('p');
   explanation.textContent = q.explanation || `求める数はおよそ 10^(${q.answer.toFixed(3)}) です。小数点以下の値と、10の何乗かを分けて考えてみましょう。`;
-  $('feedback').append(heading, correct, explanation);
+  const mascot = document.createElement('img');
+  mascot.src = grade.correct ? '/assets/rays-celebrate.png' : '/assets/rays-thinking.png';
+  mascot.alt = ''; mascot.width = 100; mascot.height = 100;
+  const message = document.createElement('div'); message.append(heading, correct, explanation);
+  $('feedback').append(mascot, message);
   $('progress').value = index + 1;
   $('next').textContent = index + 1 === questions.length ? '結果を見る →' : '次の問題へ →';
   $('next').hidden = false;

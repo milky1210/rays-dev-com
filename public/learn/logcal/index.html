@@ -3,19 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ログ算の基本を学び、数・単位・時間・確率のクイズで練習するRAYSの学習サイト。">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="RAYSと一緒にログ算を学ぼう。数・単位・時間・確率を常用対数でとらえる、7コースの学習サイト。">
+  <meta property="og:title" content="ログ算道場 | RAYS">
+  <meta property="og:description" content="大きな数を、小さくつかむ。RAYSと学ぶ、ログ算の道場。">
+  <meta property="og:image" content="https://rays-dev.com/og-rays.png">
+  <meta property="og:url" content="https://rays-dev.com/learn/logcal/">
   <title>ログ算道場 | RAYS</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="canonical" href="https://rays-dev.com/learn/logcal/">
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
-  <header><a class="brand" href="/">RAYS <span>LEARN</span></a><a href="/">ポートフォリオへ ↗</a></header>
+  <header>
+    <a class="brand" href="/" aria-label="RAYS ホーム"><img src="/favicon.svg" alt="" width="44" height="44"><span>RAYS <small>LEARN</small></span></a>
+    <a href="/">ポートフォリオへ <span aria-hidden="true">↗</span></a>
+  </header>
   <main>
-    <section class="hero"><div><p class="eyebrow">THINK IN LOGARITHMS</p><h1>大きな数を、<br><em>小さくつかむ。</em></h1><p>かけ算を足し算に。桁違いの数字を、感覚に。<br>対数を使う「ログ算」を、少しずつ身につけよう。</p><a class="button" href="#courses">練習をはじめる ↓</a></div><div class="hero-number" aria-label="1000 の常用対数は 3"><span>1,000</span><b>log₁₀ ↓</b><strong>3<span>.</span>0</strong><small>数字の大きさが、見えてくる。</small></div></section>
-    <section class="lesson" aria-labelledby="lesson-title"><p class="eyebrow">01 / THE BASICS</p><h2 id="lesson-title">ログ算って、なに？</h2><p>ここでのログは常用対数（底が10の対数）。「10を何乗するとその数になるか」を表します。</p><div class="rules"><article><small>数を変える</small><h3>log₁₀ 100 = 2</h3><p>10² = 100 だから、100 のログは 2。<br>0.01 のログは −2 です。</p></article><article><small>かけ算を変える</small><h3>log(ab) = log a + log b</h3><p>2 × 5 = 10 なら、0.301 + 0.699 ≈ 1。<br>わり算はログの引き算になります。</p></article><article><small>感覚をつかむ</small><h3>2 → .301 / 3 → .477</h3><p>5 → .699、10 → 1。<br>20 のログは 1 + .301 ≈ 1.301 です。</p></article></div><details><summary>この道場の回答ルール</summary><p>答えるのは数そのものではなく、その数の常用対数です。例：「1分は何秒？」→ 60 → log₁₀ 60 ≈ <b>1.778</b>。元教材の「何桁？」という表現も、整数の桁数ではなく対数値を求めます。「何分の1？」は分母の常用対数を答えます。接頭辞は k=10³、M=10⁶、G=10⁹、T=10¹²、P=10¹⁵、E=10¹⁸、Z=10²¹、Y=10²⁴ です。誤差 ±0.1 以内で正解です。実際の数では約1.26倍までのずれに相当します。解説や人口データは元教材の時点のものです。</p></details></section>
-    <section id="courses"><p class="eyebrow">02 / PRACTICE</p><h2>今日の練習、どれにする？</h2><p>1回最大10問。答え合わせをしながら、自分のペースで。</p><div id="course-list" class="courses"></div><p id="load-error" role="alert" hidden></p></section>
-    <section id="practice" class="practice" hidden aria-labelledby="practice-title"><div class="quiz-top"><p id="practice-title"></p><button id="quit" class="quiet">コース選択に戻る</button></div><progress id="progress" max="10" value="0" aria-label="回答済みの問題数"></progress><p id="counter" class="eyebrow"></p><h2 id="question" tabindex="-1"></h2><form id="answer-form"><label for="answer">答えの常用対数（小数で入力）</label><div class="answer-row"><input id="answer" type="text" inputmode="decimal" autocomplete="off" placeholder="例: 1.778" aria-describedby="answer-help" required><button class="button" type="submit">答え合わせ</button></div><p id="answer-help">負の数も入力できます。正解の目安は ±0.1。</p></form><div id="feedback" class="feedback" aria-live="polite"></div><button id="next" class="button" hidden>次の問題へ →</button></section>
-    <section id="result" class="result" hidden aria-labelledby="result-title"><p class="eyebrow">SESSION COMPLETE</p><h2 id="result-title" tabindex="-1">おつかれさま！</h2><p id="score" class="score"></p><p id="best"></p><div class="result-actions"><button id="retry" class="button">同じコースでもう一度</button><button id="review" class="quiet" hidden>間違えた問題を復習</button><button id="choose" class="quiet">コースを選ぶ</button></div><div id="review-list"></div></section>
-  </main><footer><a href="/">RAYS / PLAY · BUILD · SHARE</a><span>教材: logCalDojo · 記録はこのブラウザに保存</span></footer>
-</body></html>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">LEARN WITH RAYS / LOGARITHMS</p>
+        <h1>大きな数を、<br><em>小さくつかむ。</em></h1>
+        <p>かけ算を足し算に。桁違いの数字を、感覚に。<br>RAYSと一緒に「ログ算」を身につけよう。</p>
+        <a class="button" href="#courses">練習をはじめる <span aria-hidden="true">↗</span></a>
+        <span class="hero-meta">7つのコース · 1回最大10問 · 登録不要</span>
+      </div>
+      <div class="hero-scene">
+        <div class="scene-circle" aria-hidden="true"></div>
+        <span class="mentor-note">いっしょに、考えてみよう。</span>
+        <img class="hero-mentor" src="/assets/rays-thinking.png" alt="あごに手をあてて考えるRAYS" width="1280" height="1280" fetchpriority="high">
+        <div class="hero-number" aria-label="1000 の常用対数は 3"><span>1,000</span><b>log₁₀ ↓</b><strong>3.0</strong></div>
+      </div>
+    </section>
+
+    <section class="lesson" aria-labelledby="lesson-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / THE BASICS</p><h2 id="lesson-title">まずは、ログ算のこと。</h2></div><span class="section-note">数の見方が変わる、3つのヒント。</span></div>
+      <p>ログは「10を何乗するとその数になるか」。この道場では、底が10の「常用対数」を使います。</p>
+      <div class="rules">
+        <article><small>01 — 数を変える</small><h3>log₁₀ 100 = 2</h3><p>10² = 100 だから、100 のログは 2。<br>0.01 のログは −2 です。</p></article>
+        <article><small>02 — かけ算を変える</small><h3>log(ab) = log a + log b</h3><p>2 × 5 = 10 なら、0.301 + 0.699 ≈ 1。<br>わり算はログの引き算になります。</p></article>
+        <article><small>03 — 感覚をつかむ</small><h3>2 → .301 / 3 → .477</h3><p>5 → .699、10 → 1。<br>20 のログは 1 + .301 ≈ 1.301 です。</p></article>
+      </div>
+      <details><summary>回答ルールを読む</summary><p>答えるのは数そのものではなく、その数の常用対数です。例：「1分は何秒？」→ 60 → log₁₀ 60 ≈ <b>1.778</b>。元教材の「何桁？」も整数の桁数ではなく対数値を求めます。「何分の1？」は分母の常用対数を答えます。接頭辞は k=10³、M=10⁶、G=10⁹、T=10¹²、P=10¹⁵、E=10¹⁸、Z=10²¹、Y=10²⁴ です。誤差 ±0.1 以内で正解。実際の数では約1.26倍までのずれに相当します。解説や人口データは元教材の時点のものです。</p></details>
+    </section>
+
+    <section id="courses">
+      <div class="section-heading"><div><p class="eyebrow">02 / PRACTICE</p><h2>今日の練習、どれにする？</h2></div><span class="section-note">1回最大10問。自分のペースで。</span></div>
+      <div id="course-list" class="courses"></div>
+      <p id="load-error" role="alert" hidden></p>
+      <noscript><p>クイズを始めるには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+    </section>
+
+    <section id="practice" class="practice" hidden aria-labelledby="practice-title">
+      <div class="quiz-top"><p id="practice-title"></p><button id="quit" class="quiet">コース選択に戻る</button></div>
+      <progress id="progress" max="10" value="0" aria-label="回答済みの問題数"></progress>
+      <p id="counter" class="eyebrow"></p>
+      <h2 id="question" tabindex="-1"></h2>
+      <form id="answer-form">
+        <label for="answer">答えの常用対数（小数で入力）</label>
+        <div class="answer-row"><input id="answer" type="text" inputmode="decimal" autocomplete="off" placeholder="例: 1.778" aria-describedby="answer-help" required><button class="button" type="submit">答え合わせ</button></div>
+        <p id="answer-help">負の数も入力できます。正解の目安は ±0.1。</p>
+      </form>
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+      <button id="next" class="button" hidden>次の問題へ →</button>
+      <div class="practice-hint"><img src="/favicon.svg" width="28" height="28" alt=""><span>急がなくて大丈夫。10の何乗か、から考えてみよう。</span></div>
+    </section>
+
+    <section id="result" class="result" hidden aria-labelledby="result-title">
+      <div class="result-intro"><div><p class="eyebrow">SESSION COMPLETE</p><h2 id="result-title" tabindex="-1">おつかれさま！</h2><p id="score" class="score"></p><p id="best"></p></div><img src="/assets/rays-celebrate.png" alt="笑顔でガッツポーズをするRAYS" width="1280" height="1280" loading="lazy"></div>
+      <div class="result-actions"><button id="retry" class="button">同じコースでもう一度</button><button id="review" class="quiet" hidden>間違えた問題を復習</button><button id="choose" class="quiet">コースを選ぶ</button></div>
+      <div id="review-list"></div>
+    </section>
+  </main>
+  <footer><a class="footer-brand" href="/"><img src="/favicon.svg" alt="" width="30" height="30">RAYS / PLAY · BUILD · SHARE</a><span>教材: logCalDojo · 記録はこのブラウザに保存</span></footer>
+</body>
+</html>
