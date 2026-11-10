@@ -1,4 +1,5 @@
 import { courses, gradeAnswer, selectQuestions } from './core.js';
+import { editAnswer } from './keypad.js';
 
 const $ = id => document.getElementById(id);
 const storageKey = 'rays-logcal-best-v1';
@@ -24,12 +25,14 @@ function renderQuestion() {
   $('progress').value = index;
   $('question').textContent = q.question.replace(/^問題文:\s*/, '');
   $('answer').value = '';
+  $('answer').removeAttribute('aria-invalid');
+  $('answer-error').hidden = true;
+  $('sign-key').setAttribute('aria-pressed', 'false');
   $('answer-form').hidden = false;
   $('feedback').replaceChildren();
   $('feedback').className = 'feedback';
   $('next').hidden = true;
   $('question').focus({ preventScroll: true });
-  $('answer').focus({ preventScroll: true });
 }
 
 function begin(pool, isReview = false) {
@@ -80,13 +83,43 @@ for (const [i, item] of courses.entries()) {
   $('course-list').append(button);
 }
 
+function pressAnswerKey(key) {
+  $('answer').value = editAnswer($('answer').value, key);
+  $('sign-key').setAttribute('aria-pressed', String($('answer').value.startsWith('-')));
+  $('answer').removeAttribute('aria-invalid');
+  $('answer-error').hidden = true;
+  $('feedback').replaceChildren();
+}
+
+for (const button of $('answer-form').querySelectorAll('[data-key]')) {
+  button.addEventListener('click', () => pressAnswerKey(button.dataset.key));
+}
+
+document.addEventListener('keydown', event => {
+  if ($('practice').hidden || $('answer-form').hidden || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) return;
+  // Leave navigation controls and button activation accessible by keyboard.
+  if (event.target instanceof Element && event.target.closest('button:not([data-key]), a')) return;
+  const key = { Backspace: 'delete', Delete: 'clear', Escape: 'clear', '-': 'sign' }[event.key] ?? event.key;
+  if (/^\d$/.test(key) || ['.', 'delete', 'clear', 'sign'].includes(key)) {
+    event.preventDefault();
+    pressAnswerKey(key);
+    $('answer').focus({ preventScroll: true });
+  } else if (event.key === 'Enter' && !(event.target instanceof HTMLButtonElement)) {
+    event.preventDefault();
+    $('answer-form').requestSubmit();
+  }
+});
+
 $('answer-form').addEventListener('submit', event => {
   event.preventDefault();
+  if ($('answer-form').hidden || !questions[index]) return;
   const q = questions[index];
   const grade = gradeAnswer($('answer').value, q.answer);
   if (!grade) {
-    $('feedback').textContent = '小数の数値を入力してください（例: −0.301）。';
-    $('answer').focus();
+    $('answer-error').textContent = '数字を入力してから送信してください（例: −0.301）。';
+    $('answer-error').hidden = false;
+    $('answer').setAttribute('aria-invalid', 'true');
+    $('answer').focus({ preventScroll: true });
     return;
   }
   answers.push({ question: q, ...grade });

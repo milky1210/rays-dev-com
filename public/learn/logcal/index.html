@@ -10,14 +10,15 @@
   <meta property="og:image" content="https://rays-dev.com/og-rays.png">
   <meta property="og:url" content="https://rays-dev.com/learn/logcal/">
   <title>ログ算道場 | RAYS</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon-rays-v2.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-rays-v2.png">
   <link rel="canonical" href="https://rays-dev.com/learn/logcal/">
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
   <header>
-    <a class="brand" href="/" aria-label="RAYS ホーム"><img src="/favicon.svg" alt="" width="44" height="44"><span>RAYS <small>LEARN</small></span></a>
+    <a class="brand" href="/" aria-label="RAYS ホーム"><img src="/assets/rays-avatar-v2.png" alt="" width="44" height="44"><span>RAYS <small>LEARN</small></span></a>
     <a href="/">ポートフォリオへ <span aria-hidden="true">↗</span></a>
   </header>
   <main>
@@ -62,12 +63,24 @@
       <h2 id="question" tabindex="-1"></h2>
       <form id="answer-form">
         <label for="answer">答えの常用対数（小数で入力）</label>
-        <div class="answer-row"><input id="answer" type="text" inputmode="decimal" autocomplete="off" placeholder="例: 1.778" aria-describedby="answer-help" required><button class="button" type="submit">答え合わせ</button></div>
-        <p id="answer-help">負の数も入力できます。正解の目安は ±0.1。</p>
+        <input id="answer" class="answer-display" type="text" inputmode="none" autocomplete="off" placeholder="例: 1.778" aria-describedby="answer-help answer-error" readonly>
+        <p id="answer-error" class="answer-error" role="alert" hidden></p>
+        <div class="answer-controls" role="group" aria-label="回答の編集">
+          <button id="sign-key" type="button" data-key="sign" aria-label="正負を切り替え" aria-pressed="false">± <span>正負</span></button>
+          <button type="button" data-key="delete" aria-label="1文字削除">⌫ <span>1文字削除</span></button>
+          <button type="button" data-key="clear">クリア</button>
+        </div>
+        <div class="answer-keypad" role="group" aria-label="数字キーパッド">
+          <button type="button" data-key="1">1</button><button type="button" data-key="2">2</button><button type="button" data-key="3">3</button>
+          <button type="button" data-key="4">4</button><button type="button" data-key="5">5</button><button type="button" data-key="6">6</button>
+          <button type="button" data-key="7">7</button><button type="button" data-key="8">8</button><button type="button" data-key="9">9</button>
+          <button type="button" data-key="0">0</button><button type="button" data-key="." aria-label="小数点">.</button><button class="keypad-submit" type="submit">送信</button>
+        </div>
+        <p id="answer-help">上のボタンで入力できます。±で負の数に切り替え。正解の目安は ±0.1。</p>
       </form>
       <div id="feedback" class="feedback" aria-live="polite"></div>
       <button id="next" class="button" hidden>次の問題へ →</button>
-      <div class="practice-hint"><img src="/favicon.svg" width="28" height="28" alt=""><span>急がなくて大丈夫。10の何乗か、から考えてみよう。</span></div>
+      <div class="practice-hint"><img src="/assets/rays-avatar-v2.png" width="32" height="32" alt=""><span>急がなくて大丈夫。10の何乗か、から考えてみよう。</span></div>
     </section>
 
     <section id="result" class="result" hidden aria-labelledby="result-title">
@@ -76,6 +89,6 @@
       <div id="review-list"></div>
     </section>
   </main>
-  <footer><a class="footer-brand" href="/"><img src="/favicon.svg" alt="" width="30" height="30">RAYS / PLAY · BUILD · SHARE</a><span>教材: logCalDojo · 記録はこのブラウザに保存</span></footer>
+  <footer><a class="footer-brand" href="/"><img src="/assets/rays-avatar-v2.png" alt="" width="32" height="32">RAYS / PLAY · BUILD · SHARE</a><span>教材: logCalDojo · 記録はこのブラウザに保存</span></footer>
 </body>
 </html>

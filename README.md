@@ -80,6 +80,8 @@ Run the portfolio build and deploy again.
 
 独立した静的ページなのでポートフォリオと一緒にビルド・公開される。
 1回最大10問、常用対数で回答し誤差±0.1以内を正解とする。
+回答は3列×4行の画面内テンキー（1–9 / 0・小数点・送信）で入力する。
+負号切り替え・1文字削除・クリアを別段に置き、スマホのソフトキーボードは開かない。
 「何分の1」は分母の対数。人口コースは元教材の2024年時点の数値を使用する。
 記録はlocalStorageに保存され、サーバーアカウントや同期は不要。
 
@@ -92,6 +94,7 @@ GitHubの元HEAD `b63abf4` に加え、旧ローカル作業フォルダの公�
 ## キャラクターとブランド素材
 
 デザイン資料、生成プロンプト、画像の保存先は `docs/brand/README.md` に記録する。
-共通アイコンは `public/favicon.svg`。キャラクターの案内・思案・笑顔の3ポーズは
+共通アイコンは `public/assets/rays-avatar-v2.png`。ファビコンは `public/favicon-rays-v2.png`。
+キャラクターの案内・思案・笑顔の3ポーズは
 `public/assets/rays-welcome.png`、`rays-thinking.png`、`rays-celebrate.png`。
 SNS共有画像は `public/og-rays.png` を使用する。

@@ -16,12 +16,20 @@ User-provided references are retained in `references/rays-expressions.jpg` and `
 - `public/assets/rays-welcome.png`: welcoming full-body pose for the portfolio hero.
 - `public/assets/rays-thinking.png`: learning hero, learning feature and retry feedback.
 - `public/assets/rays-celebrate.png`: correct answers, completed sessions and About.
-- `public/favicon.svg`: code-native simplified hood mark, shared by headers and browser icons.
+- `public/assets/rays-avatar-v2.png`: reference-faithful illustrated head icon (256px), shared by headers, hints and footers.
+- `public/favicon-rays-v2.png`: 64px favicon; `public/apple-touch-icon-rays-v2.png`: 180px touch icon. Previous SVG is retained for history but is no longer linked.
 - `public/og-rays.png`: social sharing card.
 
 PNG artwork was created using the built-in ImageGen tool on 2026-11-08. The three character PNGs preserve real alpha transparency; the social card has an opaque ivory background. Existing artwork remains available under its original filenames.
 
 ## Final generation prompts
+
+### Front-facing avatar, updated 2026-11-10
+
+The built-in ImageGen tool created `docs/brand/rays-avatar-v2-master.png` using the supplied expression and turnaround references. Published icon sizes are downscaled copies with alpha preserved.
+
+Use case: identity-preserve. Asset type: website mascot avatar icon, square, transparent. The TWO supplied images are CHARACTER IDENTITY references; reproduce the NORMAL front-facing RAYS face, especially the large face close-up in the lower left of reference image 2 and normal expression top left of reference image 1. Draw exactly one head-and-hood icon, no body, no shoulders, no text, no labels, no border badge, no background. Match the character faithfully: a broad rounded triangular charcoal hoodie hood, gently asymmetrical peak leaning slightly right, wide flared rounded lower corners, subtle layered fabric edge and soft charcoal cel shading, NOT an egg-shaped or pointed teardrop face. Inside is a very dark navy featureless face; two LARGE hollow warm-yellow glowing perfectly ROUND ring eyes (each about 1/5 the face width), placed level with one another, and a clearly visible small downward-pointing equilateral triangular outlined beak mouth centered just beneath the eyes. No nose, no eyebrows, no cheeks. Preserve relative sizes and spacing of eyes, mouth and hood from the provided front-facing face close-up. The dark face forms a broad rounded triangle opening within the hood, not a narrow mask. Confident 2D hand-drawn cel illustration, restrained warm glow, no 3D. Head fills 90% of the square canvas, all hood edges fully visible, transparent alpha background. Optimize legibility at 32–48px without changing character design.
+
 
 ### Common character prompt
 

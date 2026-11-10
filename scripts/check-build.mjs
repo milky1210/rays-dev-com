@@ -1,7 +1,7 @@
 import { readFile, access } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const root = new URL('../dist/client/', import.meta.url);
-for (const path of ['index.html','learn/logcal/index.html','learn/logcal/app.js','learn/logcal/core.js','learn/logcal/style.css','apps/select-cheaper/index.html','assets/rays-welcome.png','assets/rays-thinking.png','assets/rays-celebrate.png','favicon.svg','og-rays.png']) await access(new URL(path, root));
+for (const path of ['index.html','learn/logcal/index.html','learn/logcal/app.js','learn/logcal/core.js','learn/logcal/keypad.js','learn/logcal/style.css','apps/select-cheaper/index.html','assets/rays-welcome.png','assets/rays-thinking.png','assets/rays-celebrate.png','assets/rays-avatar-v2.png','favicon-rays-v2.png','apple-touch-icon-rays-v2.png','og-rays.png']) await access(new URL(path, root));
 const home = await readFile(new URL('index.html', root), 'utf8');
 assert.ok(home.includes('/learn/logcal/'), 'Portfolio must link to the learning site');
 const {courses} = await import('../public/learn/logcal/core.js');

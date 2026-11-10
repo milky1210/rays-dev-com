@@ -73,7 +73,7 @@ const youtubeVideos = [
 
 function FaceMark() {
   return (
-    <img className="face-mark" src="/favicon.svg" alt="" width="48" height="48" aria-hidden="true" />
+    <img className="face-mark" src="/assets/rays-avatar-v2.png" alt="" width="48" height="48" aria-hidden="true" />
   );
 }
 

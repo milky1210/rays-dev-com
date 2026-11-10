@@ -15,7 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://rays-dev.com'),
   title: 'RAYS — やってみたいを、つくってみる。',
-  icons: { icon: '/favicon.svg' },
+  icons: {
+    icon: { url: '/favicon-rays-v2.png', type: 'image/png', sizes: '64x64' },
+    apple: '/apple-touch-icon-rays-v2.png',
+  },
   description:
     'RAYSのポートフォリオ。ゲーム、数学、Webアプリを、触って遊べる形にしています。',
   openGraph: {
